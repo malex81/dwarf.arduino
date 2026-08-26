@@ -1,0 +1,85 @@
+[Источник](https://www.google.com/search?atvm=2&elids=CPnhluqC_dz-qwEQARgBIhBFtdznBttUor4v2dCkJBNSMoIBIgJyZCgxQnQKLmxmZS1kdW1teToxZjVlNmZhZC05NTZkLTRkNTAtODU4My1lYmE2ZjQyNWQ2ZGYSQgpAL2Jucy9yZC9ib3JnL3JkL2Jucy9sZW5zLWZyb250ZW5kLWFwaS9wcm9kLmxlbnMtZnJvbnRlbmQtYXBpLzExM1oECgJyZDio6Jvu8qeWA1AAaglpbWFnZS9wbmc%2CCIfukIL1r-eniAEQARgBIhAMEelcpnhbPSStcxKaPNZXMoIBIgJyZCgaQnQKLmxmZS1kdW1teTowMGM5ZWRlNy1jMjhjLTRjOGUtYTlkOC03MmExMmQyNTc2YzESQgpAL2Jucy9yZC9ib3JnL3JkL2Jucy9sZW5zLWZyb250ZW5kLWFwaS9wcm9kLmxlbnMtZnJvbnRlbmQtYXBpLzE1N1oECgJyZDjA6av4o62WA1AAaglpbWFnZS9wbmc%2CCLrHo8iX08DxggEQARgBIhABotLKlAA2XCcvJhL-U2WpMoIBIgJsdSgiQnQKLmxmZS1kdW1teTozMmM0NGE1My05YzVmLTQ2YTUtODI5MS1iZDdiMzAyNjU3MTISQgpAL2Jucy9sdS9ib3JnL2x1L2Jucy9sZW5zLWZyb250ZW5kLWFwaS9wcm9kLmxlbnMtZnJvbnRlbmQtYXBpLzE0MloECgJsdTiIntTt27iWA1AAaglpbWFnZS9wbmc%2CCMKGuK_ahsalmwEQARgBIhC-6ratGp2_6KfFGL0r06H1MoIBIgJsdSgnQnQKLmxmZS1kdW1teTpiNmJkMWY0Zi1iYWYxLTRmMzYtOWVmYS00ODZiYTcyNTY4ODASQgpAL2Jucy9sdS9ib3JnL2x1L2Jucy9sZW5zLWZyb250ZW5kLWFwaS9wcm9kLmxlbnMtZnJvbnRlbmQtYXBpLzExOFoECgJsdTjwjImi9LiWA1AAaglpbWFnZS9wbmc&q=%D0%90+%D1%82%D1%8B+%D0%BC%D0%BE%D0%B6%D0%B5%D1%88%D1%8C+%D0%BF%D0%BE%D0%B8%D1%81%D0%BA%D0%B0%D1%82%D1%8C+%D0%BD%D0%B0%D1%88%D0%B5+%D0%BF%D0%B5%D1%80%D0%B5%D0%BF%D0%B8%D1%81%D0%BA%D1%83+%D0%B0+%D1%81%D1%82%D0%B0%D1%80%D1%8B%D1%85+%D1%87%D0%B0%D1%82%D0%B0%D1%85%3F+%D0%A2%D0%B0%D0%BC+%D0%B1%D1%8B%D0%BB%D0%B0+%D0%BF%D0%BE%D0%BB%D0%B5%D0%B7%D0%BD%D0%B0%D1%8F+%D0%B8%D0%BD%D1%84%D0%BE%D1%80%D0%BC%D0%B0%D0%B8%D1%86%D1%8F+%D0%BF%D0%BE+%D0%B8%D1%81%D0%BF%D0%BE%D0%BB%D1%8C%D0%B7%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D1%8E+%D0%B0%D1%80%D0%B4%D1%83%D0%B8%D0%BD%D0%BE+%D0%B2+%D0%BA%D0%B0%D1%87%D0%B5%D1%81%D1%82%D0%B2%D0%B5+%D0%A8%D0%98%D0%9C%2C+%D0%BD%D0%BE+%D0%BE%D0%BD%D0%B0+%D0%B7%D0%B0%D1%82%D0%B5%D1%80%D1%8F%D0%BB%D0%B0%D1%81%D1%8C&mstk=AUtExfBeZt5ZBj8KYoN-O0RsPaz1VX1ZV7qGfGs-lYjbYGVNAGmtVzjwOJnthbPxMd-q9_nFV1IxHRdgczZEjG-6fWgIF3d8qGlwIMwSha5hmC25bAkArp00p3t7UfG022tiw03gN2kFd22e6CygX-jdYYuULr-91H_OUZc7R2L8U0YktiY4wjKP4Co-Hak5qb8v74a-O2y75WO-Vws2Z5yfZg4cIA8KKdyHxLt2VpNDK7nnR1TcKMuOehLDvbzMVcykEA8WGWv8bP5NNQ&csuir=1&mtid=B7aOaqfRILvYwPAP_bje8A4&udm=50)
+
+Сделать ШИМ с независимой и плавной регулировкой частоты и скважности на Arduino можно, но стандартная функция analogWrite() для этого уже не подойдет. Нам придется настраивать внутренние таймеры микроконтроллера ATmega328P напрямую через регистры.
+Лучше всего для этой задачи использовать Таймер 1 (Timer 1), так как он 16-битный. Это даст нам очень высокую точность настройки как частоты, так и скважности. Выходной сигнал мы будем снимать с пина 9 (OC1A).
+
+## 🛠 Как это работает (Режим Phase and Frequency Correct PWM)
+В этом режиме таймер считает вверх до определенного значения (ICR1), а затем вниз до нуля.
+
+* Частота задается регистром ICR1 (он определяет, как высоко считает таймер).
+* Скважность задается регистром OCR1A (он определяет момент переключения сигнала внутри этого диапазона).
+
+## 💻 Скетч для плавной регулировки (с потенциометрами)
+Для управления подключите два потенциометра к аналоговым пинам:
+
+* A0 — регулятор частоты.
+* A1 — регулятор скважности.
+* Выход ШИМ — цифровой пин 9.
+
+``` C
+// Настройка пинов
+const int freqPot = A0; // Потенциометр частоты
+const int dutyPot = A1; // Потенциометр скважности
+const int pwmPin = 9;   // Выход ШИМ (Таймер 1, канал А)
+
+void setup() {
+  pinMode(pwmPin, OUTPUT);
+  
+  // 1. Сброс регистров Таймера 1
+  TCCR1A = 0;
+  TCCR1B = 0;
+  TCNT1  = 0;
+
+  // 2. Включаем инвертированный или неинвертированный ШИМ на канале А (пин 9)
+  // COM1A1 = 1, COM1A0 = 0 -> Неинвертированный ШИМ
+  TCCR1A |= (1 << COM1A1);
+
+  // 3. Включаем режим №8 (Phase and Frequency Correct PWM, вершина счета в ICR1)
+  // WGM13 = 1 в TCCR1B
+  TCCR1B |= (1 << WGM13);
+
+  // 4. Устанавливаем предделитель (Prescaler) на 8
+  // При тактовой частоте 16 МГц таймер будет тикать на частоте 2 МГц (16МГц / 8)
+  // CS11 = 1 в TCCR1B
+  TCCR1B |= (1 << CS11); 
+}
+void loop() {
+  // Читаем потенциометр частоты (0 - 1023)
+  int rawFreq = analogRead(freqPot);
+  
+  // Переводим в значение для регистра ICR1. 
+  // Диапазон ICR1 от 100 до 20000 даст частоту примерно от 50 Гц до 10 000 Гц.
+  // Формула частоты: F = F_cpu / (2 * Prescaler * ICR1) -> ICR1 = 1 000 000 / F
+  unsigned int icrValue = map(rawFreq, 0, 1023, 20000, 100); 
+  
+  // Важно: меняем частоту только если показания изменились, чтобы избежать дребезга
+  if (ICR1 != icrValue) {
+    ICR1 = icrValue;
+  }
+
+  // Читаем потенциометр скважности (0 - 1023)
+  int rawDuty = analogRead(dutyPot);
+  
+  // Скважность (OCR1A) не должна превышать вершину счета (ICR1)
+  // Расчет от 0 (0%) до icrValue (100%)
+  unsigned int ocrValue = map(rawDuty, 0, 1023, 0, icrValue);
+  
+  OCR1A = ocrValue;
+
+  delay(20); // Небольшая задержка для стабильности АЦП
+}
+```
+
+## 📊 Какие границы регулировки мы получаем?
+При предделителе 8 (как в коде выше):
+
+* Минимальная частота: 50 Гц (ICR1 = 20000)
+* Максимальная частота: 10 000 Гц (ICR1 = 100) с сохранением отличной плавности скважности.
+
+Если вам нужен другой диапазон (например, ультразвуковой до 40 кГц или инфранизкий для автоматики), нужно просто изменить делитель частоты (CS11) в блоке setup.
+Давайте настроим этот код идеально под ваши задачи. Подскажите:
+
+* В каком диапазоне частот (Гц, кГц) должен работать ваш ШИМ?
+* Каким образом вы хотите задавать значения (через потенциометры, кнопками, или вводить команды в Serial-порт)?
+
+
