@@ -12,8 +12,8 @@ struct Mode {
 // 2. Сами массивы времени (меняйте их длину как хотите)
 const int mode0[] = { 1000 };
 const int mode1[] = { 500, 300 };
-const int mode2[] = { 1000, 1000, 3000, 500, 500, 500 };
-const int mode3[] = { 200, 200, 200, 1000 };
+const int mode2[] = { 1000, 500, 400, 400, 800, 500 };
+const int mode3[] = { 300, 200, 300, 1000 };
 
 // 3. Автоматически упаковываем массивы в структуру с подсчетом длины через sizeof
 // Макрос С_ARRAY_LEN автоматически считает количество элементов в массиве
@@ -96,8 +96,11 @@ void loop() {
   }
 
   int rawDuty = analogRead(dutyPot);
+  float dutyRatio = rawDuty / 1023.0;
+  float nonLinearDuty = dutyRatio * dutyRatio;
+
   unsigned int maxSafeDuty = (icrValue * 3) / 4;  // 75%
-  unsigned int ocrValue = map(rawDuty, 0, 1023, 0, maxSafeDuty);
+  unsigned int ocrValue = nonLinearDuty * maxSafeDuty;
 
   if (isPwmActive) {
     OCR1A = ocrValue;

@@ -177,3 +177,7 @@ void loop() {
 ## Доработанный вариант - с кнопкой и режимами
 
 [Диалог с ИИ](https://share.google/aimode/4IEqRo2IdoqeNZ6I4)
+
+## Квадратичная зависимость
+
+[Диалог с ИИ](https://share.google/aimode/1ZD0eVc1l6NKDZBll)
